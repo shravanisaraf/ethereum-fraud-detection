@@ -1,0 +1,50 @@
+{
+  "tabular_pytorch": {
+    "acc": 0.9174311926605505,
+    "f1_macro": 0.7839590964590964,
+    "per_class_precision": {
+      "mixer": 0.7450980392156863,
+      "phishing": 0.9767441860465116,
+      "ponzi": 0.5789473684210527,
+      "rug_pull": 0.6818181818181818
+    },
+    "per_class_recall": {
+      "mixer": 0.8636363636363636,
+      "phishing": 0.9385474860335196,
+      "ponzi": 0.6875,
+      "rug_pull": 0.8333333333333334
+    }
+  },
+  "hybrid_pytorch_ce": {
+    "acc": 0.9243119266055045,
+    "f1_macro": 0.811684660368871,
+    "per_class_precision": {
+      "mixer": 0.7692307692307693,
+      "phishing": 0.9767441860465116,
+      "ponzi": 0.6,
+      "rug_pull": 0.75
+    },
+    "per_class_recall": {
+      "mixer": 0.9090909090909091,
+      "phishing": 0.9385474860335196,
+      "ponzi": 0.75,
+      "rug_pull": 0.8333333333333334
+    }
+  },
+  "hybrid_pytorch_focal": {
+    "acc": 0.7889908256880734,
+    "f1_macro": 0.6605267483715644,
+    "per_class_precision": {
+      "mixer": 0.4880952380952381,
+      "phishing": 0.985663082437276,
+      "ponzi": 0.2549019607843137,
+      "rug_pull": 0.6818181818181818
+    },
+    "per_class_recall": {
+      "mixer": 0.9318181818181818,
+      "phishing": 0.7681564245810056,
+      "ponzi": 0.8125,
+      "rug_pull": 0.8333333333333334
+    }
+  }
+}

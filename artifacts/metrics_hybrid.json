@@ -1,0 +1,5 @@
+{
+  "accuracy": 0.9151,
+  "f1_macro": 0.7393,
+  "note": "Hybrid struggles on Ponzi (few samples), better structural capture for Rug Pull."
+}
