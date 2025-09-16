@@ -1,0 +1,15 @@
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+matplotlib
+seaborn
+requests
+streamlit
+torch
+huggingface-hub
+networkx
+scipy
+gensim
+hdbscan
