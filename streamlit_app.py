@@ -11,7 +11,7 @@ st.title("🕵️ Ethereum Fraud Detection Dashboard")
 st.write("A hybrid model using tabular + Alchemy features to detect fraud types in Ethereum DeFi.")
 
 # --- File paths ---
-MODEL_PATH = "artifacts/hybrid_with_alchemy_rep_logreg.joblib"
+MODEL_PATH = "artifacts/ablation_aug_model.joblib"   # or whichever filename is right
 SCALER_PATH = "artifacts/hybrid_with_alchemy_scaler.joblib"
 CACHE_PATH = "artifacts/alchemy_cache.json"
 
