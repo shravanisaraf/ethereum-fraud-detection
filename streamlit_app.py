@@ -7,22 +7,21 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="🕵️ Ethereum Fraud Detection", layout="wide")
 st.title("🕵️ Ethereum Fraud Detection Dashboard")
-st.write("A hybrid model using **Alchemy features** to detect fraud types in Ethereum DeFi.")
+st.write("A hybrid model using **Alchemy + tabular features** to detect fraud types in Ethereum DeFi.")
 
 # --- File paths ---
 MODEL_PATH = "artifacts/ablation_aug_model.joblib"
-SCALER_PATH = "artifacts/ablation_aug_model.joblib"  
-
 CACHE_PATH = "artifacts/alchemy_cache.json"
 
-# --- Load model & scaler ---
+# --- Load model ---
 @st.cache_resource
-def load_model_and_scaler():
-    model = joblib.load(MODEL_PATH)
-    scaler = joblib.load(SCALER_PATH)
-    return model, scaler
+def load_model():
+    if not os.path.exists(MODEL_PATH):
+        st.error(f"Model file not found at {MODEL_PATH}")
+        st.stop()
+    return joblib.load(MODEL_PATH)
 
-model, scaler = load_model_and_scaler()
+model = load_model()
 
 # --- Load cached features ---
 @st.cache_data
@@ -34,7 +33,7 @@ def load_cache():
 
 cache = load_cache()
 
-# --- Fixed feature order (11 features) ---
+# --- Fixed feature order (13 features) ---
 FEATURE_ORDER = [
   "alchemy_avg_min_between_sent",
   "alchemy_avg_min_between_recv",
@@ -50,7 +49,6 @@ FEATURE_ORDER = [
   "tx_count",              # extra tabular feature
   "unique_senders"         # extra tabular feature
 ]
-
 
 # --- Helper to coerce values ---
 def safe_float(x):
@@ -89,9 +87,8 @@ if st.sidebar.button("Predict"):
         X = np.array([vec], dtype=float)
 
         try:
-            X_scaled = scaler.transform(X)
-            probs = model.predict_proba(X_scaled)[0]
-            pred = model.predict(X_scaled)[0]
+            probs = model.predict_proba(X)[0]
+            pred = model.predict(X)[0]
         except Exception as e:
             st.error(f"Prediction failed: {e}")
         else:
