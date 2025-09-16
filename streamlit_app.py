@@ -11,7 +11,8 @@ st.write("A hybrid model using **Alchemy features** to detect fraud types in Eth
 
 # --- File paths ---
 MODEL_PATH = "artifacts/ablation_aug_model.joblib"
-SCALER_PATH = "artifacts/hybrid_with_alchemy_scaler.joblib"
+SCALER_PATH = "artifacts/ablation_aug_model.joblib"  
+
 CACHE_PATH = "artifacts/alchemy_cache.json"
 
 # --- Load model & scaler ---
@@ -45,8 +46,11 @@ FEATURE_ORDER = [
   "alchemy_tx_count",
   "alchemy_contract_interactions",
   "alchemy_is_contract",
-  "alchemy_missing"
+  "alchemy_missing",
+  "tx_count",              # extra tabular feature
+  "unique_senders"         # extra tabular feature
 ]
+
 
 # --- Helper to coerce values ---
 def safe_float(x):
