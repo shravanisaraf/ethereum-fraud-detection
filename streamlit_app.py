@@ -94,7 +94,8 @@ if st.sidebar.button("Predict"):
         else:
             # Show prediction
             st.markdown("## 🔮 Prediction")
-            st.success(f"**{pred.upper()}**")
+            st.success(f"**{str(pred).upper()}**")
+
 
             # Probabilities bar chart
             prob_df = pd.DataFrame({"Class": model.classes_, "Probability": probs})
