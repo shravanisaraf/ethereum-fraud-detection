@@ -1,0 +1,38 @@
+# Python cache / bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# macOS junk
+.DS_Store
+
+# Logs
+*.log
+
+# Large models / artifacts
+*.pth
+*.pt
+*.npy
+*.npz
+*.joblib
+*.h5
+
+# Backup / temp files
+*.zip
+*.tar
+*.gz
+*.bak
+
+# Streamlit specific
+.streamlit/secrets.toml
